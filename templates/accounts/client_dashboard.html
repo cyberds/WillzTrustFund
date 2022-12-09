@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'includes/dashboard_navbar.html' %}
+
+<section>
+  <div class="block">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="title left"class="title left"><h3>Please update your details; note that if you wish to change your password; logout and click forget password.</h3> </div>
+
+            {% include 'includes/alerts.html' %}
+
+          <form class="form contact" method="POST" action="{% url 'client_dashboard' %}">
+            {% csrf_token %}
+            <div class="field">
+              <label for="first_name">First Name</label>
+              {{ form.first_name }}
+            </div>
+            <div class="field">
+              <label for="last_name">Last Name</label>
+              {{ form.last_name }}
+            </div>
+            <div class="field">
+              <label for="email">Email Address</label>
+              {{ form.email }}
+            </div>
+            <div class="field">
+              <label for="phone_number">Phone Number</label>
+              {{ form.phone_number }}
+            </div>
+            <div>
+            <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

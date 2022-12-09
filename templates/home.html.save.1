@@ -1,0 +1,587 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<section>
+  <!-- masterslider -->
+  <div class="master-slider ms-skin-default" id="masterslider">
+
+    <!-- slide 1 -->
+    <div class="ms-slide slide-1" data-delay="27">
+      <div class="slide-pattern"></div>
+      <img style="opacity: 0.3;" src="{% static 'images/Adults-Education.jpg' %}" alt=""/>
+
+      <!-- slide image layer -->
+    <img class="ms-layer" alt="lorem ipsum dolor sit"
+         data-offset-x      = "10"
+         data-offset-y      = "15"
+         style="top: 110px; left: 315px; margin-bottom; 15px"
+         data-type          = "image"
+         data-widthlimit    = "600"
+         data-resize        = "true"
+         data-effect        = "right(90)"
+         data-duration      = "800"
+         data-ease          = "easeOutQuart"
+
+
+         data-src="{% static 'images/logo3.jpeg' %}"
+    />
+
+      <h3 class="ms-layer text8 font-style1"
+			style="top: 280px; right: 280px;"
+			data-type="text"
+			data-delay="500"
+		 	data-duration="2000"
+		 	data-ease="easeOutExpo"
+		 	data-effect="rotatefront(-40,900,tr)">Whillz Trust Foundation</h3>
+
+        <h3 class="ms-layer text5 font-style1"
+			style="top: 350px; right: 280px;"
+			data-type="text"
+			data-delay="1000"
+		 	data-duration="2000"
+		 	data-ease="easeOutExpo"
+		 	data-effect="rotate3dright(10,50,0,100)">	Voter <span class="text-orange-2">EDUCATION</span>
+		</h3>
+
+      <h3 class="ms-layer text6"
+        	style="top: 410px; right: 280px;"
+            data-type="text"
+            data-effect="top(45)"
+            data-duration="2000"
+            data-delay="1500"
+            data-ease="easeOutExpo"> Promoting Voter Education Across Regions <br />
+        <span class="text-orange-2">...our obsession</span> </h3>
+
+      <a href="{% url 'company' %}" class="ms-layer sbut5 orange"
+			style="left: 540px; top: 520px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> About Us </a>
+
+      <a href="{% url 'contact_us' %}" class="ms-layer sbut1 orange"
+			style="left: 360px; top: 520px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Contact Us </a>
+
+
+            </div>
+    <!-- end slide 1 -->
+
+     <!-- slide 2 -->
+    <div class="ms-slide slide-2" data-delay="27">
+      <div class="slide-pattern"></div>
+      <img style="opacity: 0.3;" src="{% static 'images/good_governance.jpg' %}" alt=""/>
+
+      <!-- slide image layer -->
+    <img class="ms-layer" alt="lorem ipsum dolor sit"
+         data-offset-x      = "10"
+         data-offset-y      = "15"
+         style="top: 110px; left: 315px; margin-bottom; 15px"
+         data-type          = "image"
+         data-widthlimit    = "600"
+         data-resize        = "true"
+         data-effect        = "right(90)"
+         data-duration      = "800"
+         data-ease          = "easeOutQuart"
+
+
+         data-src="{% static 'images/logo3.jpeg' %}"
+    />
+
+      <h3 class="ms-layer text8 font-style1"
+			style="top: 280px; right: 280px;"
+			data-type="text"
+			data-delay="500"
+		 	data-duration="2000"
+		 	data-ease="easeOutExpo"
+		 	data-effect="rotatefront(-40,900,tr)">Whillz Trust Foundation</h3>
+
+      <h3 class="ms-layer text5 font-style1"
+			style="top: 350px; right: 280px;"
+			data-type="text"
+			data-delay="1000"
+			data-ease="easeOutExpo"
+			data-duration="1230"
+			data-effect="scale(1.5,1.6)"> Good <span class="text-orange-2">Governance</span> </h3>
+
+      <h3 class="ms-layer text6"
+        	style="top: 410px; right: 280px;"
+            data-type="text"
+            data-effect="top(45)"
+            data-duration="2000"
+            data-delay="1500"
+            data-ease="easeOutExpo"> Promoting Good Governance Across Regions <br />
+        <span class="text-orange-2">...our obsession</span></h3>
+
+      <a href="{% url 'company' %}" class="ms-layer sbut5 orange"
+			style="left: 540px; top: 520px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> About Us </a>
+
+      <a href="{% url 'contact_us' %}" class="ms-layer sbut1 orange"
+			style="left: 360px; top: 520px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Contact Us </a>
+
+
+            </div>
+    <!-- end slide 2 -->
+
+    <!-- slide 3 -->
+   <div class="ms-slide slide-2" data-delay="27">
+     <div class="slide-pattern"></div>
+     <img style="opacity: 0.3;" src="{% static 'images/woman_voting2.jpg' %}" alt=""/>
+
+     <!-- slide image layer -->
+   <img class="ms-layer" alt="lorem ipsum dolor sit"
+        data-offset-x      = "10"
+        data-offset-y      = "15"
+        style="top: 110px; left: 315px; margin-bottom; 15px"
+        data-type          = "image"
+        data-widthlimit    = "600"
+        data-resize        = "true"
+        data-effect        = "right(90)"
+        data-duration      = "800"
+        data-ease          = "easeOutQuart"
+
+
+        data-src="{% static 'images/logo3.jpeg' %}"
+   />
+
+     <h3 class="ms-layer text8 font-style1"
+     style="top: 280px; right: 280px;"
+     data-type="text"
+     data-delay="500"
+     data-ease="easeOutExpo"
+     data-duration="1230"
+     data-effect="scale(1.5,1.6)"> Whillz Trust Foundation</h3>
+
+     <h3 class="ms-layer text5 font-style1"
+     style="top: 350px; right: 280px;"
+     data-type="text"
+     data-delay="1000"
+     data-ease="easeOutExpo"
+     data-duration="1230"
+     data-effect="scale(1.5,1.6)"> Voter <span class="text-orange-2">Registration</span> </h3>
+
+     <h3 class="ms-layer text6"
+         style="top: 410px; right: 280px;"
+           data-type="text"
+           data-effect="top(45)"
+           data-duration="2000"
+           data-delay="1500"
+           data-ease="easeOutExpo"> Promoting Voter Registration Across Regions <br />
+       <span class="text-orange-2">...our obsession</span></h3>
+
+     <a href="{% url 'company' %}" class="ms-layer sbut5 orange"
+     style="left: 540px; top: 520px;"
+     data-type="text"
+     data-delay="2500"
+     data-ease="easeOutExpo"
+     data-duration="1200"
+     data-effect="scale(1.5,1.6)"> About Us </a>
+
+     <a href="{% url 'contact_us' %}" class="ms-layer sbut1 orange"
+     style="left: 360px; top: 520px;"
+     data-type="text"
+     data-delay="2500"
+     data-ease="easeOutExpo"
+     data-duration="1200"
+     data-effect="scale(1.5,1.6)"> Contact Us </a>
+
+
+           </div>
+   <!-- end slide 3 -->
+
+  </div>
+  <!-- end of masterslider -->
+</section>
+
+<!-- <section>
+  <div class="block blackish">
+  <div class="fixed-bg bg3 stop"></div>
+    <div class="container">
+      <div class="row align-items-center  justify-content-center">
+        <div class="col-lg-10 col-md-12">
+          <div class="shelter-text-carousel">
+            <div class="text-carousel">
+              <div class="text-slide">
+                <i>WHILLZ TRUST FOUNDATION - Educating Voters</i>
+                <h3>Help us increase voter population</h3>
+                <a class="btn style2" href="#" title="">Join Our Compaign</a>
+              </div>
+              <div class="text-slide">
+                <i>WHILLZ TRUST FOUNDATION - Enabling Voter Registration</i>
+                <h3>Help Us So that We Can Help our country</h3>
+                <a class="btn style2" href="#" title="">Donate Now</a>
+              </div>
+              <div class="text-slide">
+                <i>WHILLZ TRUST FOUNDATION - Educating Voters</i>
+                <h3>Help us educate voters and potential voters</h3>
+                <a class="btn style2" href="#" title="">Join Our Compaign</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section>
+  <div class="block remove-gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-12">
+          <div class="shelter-donations">
+            <span>In Nigeria</span>
+            <h3>We've Reached <span>So Far</span></h3>
+            <p>Though A Non governmental organisation but public interest and objectives of achieving voter population growth across the nigerian regions, The Foundation has so far reached out to communities and held consultations with community Development committees,  chiefs and Paramount Rulers in Rivers state.</p>
+            <div class="donations-bottom">
+              <!-- <div class="shelter-skills">
+                <div class="skillbar">
+                  <span>$350 of $1,000 raised </span>
+                  <div class="progress"> <div class="progress-bar" style="width: 85%;"><span>85%</span></div> </div>
+                </div>
+              </div> -->
+              <a class="btn open-popup" href="#" title="">Donate Now</a>
+            </div>
+          </div><!-- Shelter Donations -->
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <div class="shelter-join-box overlap">
+            <span>We need you! and your help</span>
+            <h4>Sponsor <strong>voter education</strong> Today</h4>
+            <p>Before now we have been unaware and less concerned with the process of electing our leaders, which has presented us with lack of basic amenities; bad roads, ill equipped hospitals if any, a rate of unemployment which is at an all-time high and elected leaders no longer responsible to constituents. In addition our common wealth is laundered and taken to developed countries while we suffer. All this will change when we engage the process of determining who represents us in government.</p>
+            <span>John Lewis, civil rights activist</span>
+            <a class="btn style3" href="{% url 'logout' %}" title="">Join Us Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="block less-space coloured-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="bold-text">
+            <h3>Whillz Trust Foundation's <strong> is on a mission </strong> {{ company_overview.mission_statement }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="block">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-4 col-md-12">
+          <h2 class="col-title"><strong>Founded in 2017</strong> by <strong>Ide Aaron Anyanwu</strong>, {{ company.company_name }} aims to <strong>create awareness and mobilize eligible citizens</strong> to get involved and participate in Nigeria's electoral process </h2>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="frame-img"><img src="{% static 'images/founder.jpeg' %}" alt="" /></div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="simple-text">
+            <h3>{{ company.company_name }}</h3>
+            <p>{{ company_overview.business_overview }}</p>
+            <!-- <p>{{ company_overview.vision }}</p> -->
+            <span>Ide Aaron Anyanwu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="block remove-gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="title">
+            <span>get involved</span>
+            <h2><i>OUR</i> Programs</h2>
+          </div>
+
+          <div class="creative-causes">
+            <div class="row">
+              {% for program in programs %}
+              <div class="col-4 col-6">
+                <div class="creative-cause">
+                  <div class="cre-cause-img">
+                    <img src="{{ program.image.url }}" alt="" />
+                    <!-- <span><i>$653</i> Raised of $60,524 Goal</span>
+                    <div class="skillbar">
+                      <div class="progress"> <div class="progress-bar" style="width: 85%;"><span>85%</span></div> </div>
+                    </div> -->
+                    <a class="btn open-popup" href="#" title="">Donate Now</a>
+                  </div>
+                  <div class="cause-loc"><span>{{ program.program_name }}</span></div>
+                  {% for key, value in program_desc.items %}
+                    {% if key == program.id %}
+                      <h3>{{ value }}</h3>
+                    {% endif %}
+                  {% endfor %}
+                </div><!-- Creative Cause -->
+              </div>
+              {% endfor %}
+
+            </div>
+          </div><!-- Creative Causes -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="block no-padding dark">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="shelter-video">
+          <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+              <div class="video-text">
+                <span>Promote and enable voter registration</span>
+                <h3>Voter Education Is Essential For <br><strong>DEMOCRATIC FUTURE</strong></h3>
+                <p>Your vote is the only way to ensure that you actually choose WHO you want TO represent you so get your PVC today. In addition you also have a responsibility to urge others to register to vote as It is everyone’s obligation to lift Nigeria.</p>
+                <a class="btn" href="{% url 'article' 2 %}" title="">Explore Now</a>
+                <a class="btn" href="{% url 'pre_register' %}" title="">Pre-Register Now</a>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="video-img">
+                <iframe width="793" height="585" src="https://www.youtube.com/embed/fZtx7tc8E8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- <img src="http://placehold.it/793x585" alt="" /> -->
+              </div>
+            </div>
+          </div>
+          <a class="round-icon-btn" href="#" title=""><i class="ion-ios-play-outline"></i></a>
+        </div><!-- Shelter Video -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="block ">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="title">
+            <span>GET involved</span>
+            <h2><i>OUR</i> EVENTs/ACTIVITIES</h2>
+          </div>
+
+          <div class="shelter-fancy-events">
+            <div class="custom-row">
+              <div class="masonary">
+                <!-- <div class="custom-grid2">
+                  <div class="fancy-event">
+                    <img src="http://placehold.it/485x548.jpg" alt="" />
+                    <span>Oct 12, 2016 3:53 am</span>
+                    <div class="fancy-event-details">
+                      <h3><a href="#" title="">Seminar For Children To Learn About The Future</a></h3>
+                      <i> 90012 South Street, Sanford, FL South Africa </i>
+                    </div>
+                  </div>
+                </div><!-- Fancy Event -->
+                {% for activity in activities %}
+                {% if forloop.first %}
+                <div class="custom-grid2">
+                  <div class="fancy-event">
+                    <img style="width: 485px; height: 506px; object-fit: cover;" src="{{ activity.image.url }}" alt="" />
+                    {% else %}
+                <div class="custom-grid1">
+                  <div class="fancy-event">
+                    <img style="width: 676px; height: 249px; object-fit: cover;" src="{{ activity.image.url }}" alt="" />
+                    {% endif %}
+
+                    <span>{{ activity.activity_date|date:"M d, Y i:s" }}</span>
+                    <div class="fancy-event-details">
+                      <h3><a href="#" title="">{{ activity.activity_name }}</a></h3>
+                      <!-- <i> {{ activity.activity_description }}</i> -->
+                    </div>
+                  </div><!-- Fancy Event -->
+                </div>
+                {% endfor %}
+                <!-- <div class="custom-grid1">
+                  <div class="fancy-event">
+                    <img src="http://placehold.it/676x249" alt="" />
+                    <span>Oct 12, 2016 3:53 am</span>
+                    <div class="fancy-event-details">
+                      <h3><a href="#" title="">Seminar For Children To Learn About The Future</a></h3>
+                      <i> 90012 South Street, Sanford, FL South Africa </i>
+                    </div>
+                  </div>
+                </div><!-- Fancy Event -->
+              </div>
+            </div>
+          </div><!-- Shelter Fancy Event -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section>
+  <div class="block less-space coloured-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="bold-text">
+            <h3> {{ company_overview.vision }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="block">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="title">
+            <span>GET INFORMED</span>
+            <h2><i>OUR</i> BLOG ARTICLES</h2>
+          </div>
+          <div class="shelter-blog">
+            <div class="row">
+
+              {% for article in articles %}
+              <div class="col-4">
+                <div class="simple-post">
+                  <div class="simple-post-img"><img style="width: 370px; height: 270" src="{{ article.image.url }}" alt="" /></div>
+                  <div class="simple-post-detail">
+                    <ul class="meta">
+                      <li>By
+                        {% for author in article.article_author.all %}
+                          {% if forloop.first %}
+                            <a href="#" title="">{{ author.full_name }}</a>
+                          {% endif %}
+                        {% endfor %}
+                      </li>
+                      <li>{{ article.created_date|date:"M, d, Y" }}</li>
+                      <!-- <li>October, 30, 2017</li> -->
+                    </ul>
+                    <h3><a href="#" title="">{{ article.article_title }}</a></h3>
+                    {% for key, value in dispaly_paragraph.items %}
+                      {% if key == article.id %}
+                        <p>{{ value }}</p>
+                      {% endif %}
+                    {% endfor %}
+                    <a class="readmore" href="{{ article.get_url }}" title="">Read More</a>
+                  </div>
+                </div><!-- Simple Post -->
+              </div>
+              {% endfor %}
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="block remove-gap">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="title">
+            <span> JOIN US NOW</span>
+            <h2><i>GET</i> INVOLVED</h2>
+          </div>
+          <div class="shelter-donations-boxes">
+            <div class="row">
+              <div class="col">
+                <div class="donation-box">
+                  <img src="{% static 'images/employee.jpg' %}" alt="" />
+                  <div class="box-text">
+                    <h4>BECOME AN EMPLOYEE</h4>
+                    <p>Pellentesque eu malsuada .</p>
+                    <a class="btn small" href="{% url 'get_involved' 'employment' %}" title="">Apply Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="donation-box">
+                  <img src="{% static 'images/volunteer.jpg' %}" alt="" />
+                  <div class="box-text">
+                    <h4>BECOME A VOLUNTEER</h4>
+                    <p>Pellentesque eu malsuada nisi has ellus eget et condmen tumg.</p>
+                    <a class="btn small" href="{% url 'get_involved' 'volunteer' %}" title="">Volunteer Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="donation-box">
+                  <img src="{% static 'images/partner.jpg' %}" alt="" />
+                  <div class="box-text">
+                    <h4>BECOME A PARTNER</h4>
+                    <p>Pellentesque eu malsuada nisi has ellus eget et condmen tumg.</p>
+                    <a class="btn small" href="{% url 'get_involved' 'partner' %}" title="">Partner Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- Shelter Donation Boxes -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section>
+  <div class="block less-space gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="shelter-logos">
+            <li><a href="#" title=""><img src="http://placehold.it/179x127" alt="" /></a></li>
+            <li><a href="#" title=""><img src="http://placehold.it/179x127" alt="" /></a></li>
+            <li><a href="#" title=""><img src="http://placehold.it/179x127" alt="" /></a></li>
+            <li><a href="#" title=""><img src="http://placehold.it/179x127" alt="" /></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> <!-- Trace Logos -->
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load static %}
+
+{% url 'client_dashboard' as client_dashboard %}
+
+
+{% url 'voter' as V %}
+{% url 'update_voter' updated_voter.id as UV %}
+
+
+
+
+<section>
+     <div class="container">
+       <div class="row">
+
+         <div id="filters-container" class="cbp-l-filters-button two three">
+           <div class="{% if request.path == client_dashboard %} cbp-filter-item-active {% endif %} cbp-filter-item"> <a href="{% url 'client_dashboard' %}">Client Profile</a></div>
+
+           <div class="{% if request.path == V or request.path == UV %} cbp-filter-item-active {% endif %} cbp-filter-item"><a href="{% url 'voter' %}">Manage Voter</a></div>
+
+         </div>
+
+       </div>
+     </div>
+
+
+ </section>
+ <!--end section-->

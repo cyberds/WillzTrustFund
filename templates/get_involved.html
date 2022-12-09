@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="pagetop">
+  <div class="container">
+    <h1><i>GET</i> INVOLVED</h1>
+    <ul class="breadcrumbs">
+      <li><a href="#" title="">Home</a></li>
+      <li>CONTACT</li>
+    </ul>
+  </div>
+</div>
+
+
+<section>
+  <div class="block">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="modern-title"><h3>We are here to help and anwser any questions or requests you may have</h3> </div>
+          <br/>
+            {% include 'includes/alerts.html' %}
+            <br/>
+            <form class="form contact" method="POST" action="{% url 'contact_us' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="field col-md-6">
+              <label for="full_name">Full Name</label>
+              {{ form.full_name }}
+            </div>
+            <div class="field col-md-6">
+              <label for="email">Email</label>
+              {{ form.email }}
+            </div>
+            <div class="field col-md-6">
+              <label for="company_name">Company Name</label>
+              {{ form.company_name }}
+            </div>
+            <div class="field col-md-6">
+              <label for="job_title">Job Title</label>
+              {{ form.job_title }}
+            </div>
+            <div class="field col-md-6">
+              <label for="channel">How did you hear about us</label>
+              {{ form.channel }}
+            </div>
+            <div class="field col-md-6">
+              <label for="involvement">How do you want to get involved</label>
+              {{ form.involvement }}
+            </div>
+            <div class="field">
+              <label for="program">program</label>
+              {{ form.program }}
+            </div>
+            <div class="field">
+              <label for="message">message</label>
+              {{ form.message }}
+            </div>
+
+            <div class="form-group">
+            <button type="submit" class="btn btn-primary">submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

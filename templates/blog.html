@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="pagetop">
+			<div class="container">
+				<h1><i>Our</i> Blog</h1>
+				<ul class="breadcrumbs">
+					<li><a href="#" title="">Home</a></li>
+					<li>Blog</li>
+				</ul>
+			</div>
+		</div>
+
+
+		<section>
+			<div class="block">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="shelter-blog">
+                {% if articles  %}
+								<div class="row">
+
+                  {% for article in articles %}
+                  <div class="col-4">
+                    <div class="simple-post">
+                      <div class="simple-post-img"><img style="width: 370px; height: 270" src="{{ article.image.url }}" alt="" /></div>
+                      <div class="simple-post-detail">
+                        <ul class="meta">
+                          <li>By
+                            {% for author in article.article_author.all %}
+                              {% if forloop.first %}
+                                <a href="#" title="">{{ author.full_name }}</a>
+                              {% endif %}
+                            {% endfor %}
+                          </li>
+                          <li>{{ article.created_date|date:"M, d, Y" }}</li>
+                          <!-- <li>October, 30, 2017</li> -->
+                        </ul>
+                        <h3><a href="#" title="">{{ article.article_title }}</a></h3>
+                        {% for key, value in dispaly_paragraph.items %}
+                          {% if key == article.id %}
+                            <p>{{ value }}</p>
+                          {% endif %}
+                        {% endfor %}
+                        <a class="readmore" href="{{ article.get_url }}" title="">Read More</a>
+                      </div>
+                    </div><!-- Simple Post -->
+                  </div>
+                  {% endfor %}
+								</div>
+                {% else %}
+                <div class="block">
+                  <h2>No result found. Please try again.</h2>
+                </div>
+                {% endif %}
+							</div>
+
+
+
+							<div class="shelter-pagination">
+								<ul class="pagination">
+									<li> <a href="#" title=""> Previous </a> </li>
+									<li><a class="current" href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li> <a href="#" title=""> Next</a> </li>
+								</ul>
+							</div><!-- Shelter Pagination -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+    {% endblock %}

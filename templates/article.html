@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load myapp_tags %}
+
+{% block content %}
+
+<div class="pagetop">
+  <div class="container">
+    <h1><i>{{ article.article_title }}</i></h1>
+    <ul class="breadcrumbs">
+      <li><a href="#" title="">Home</a></li>
+      <li>Blog</li>
+    </ul>
+  </div>
+</div>
+
+
+<section>
+  <div class="block">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 col-md-12">
+          <div class="shelter-blog-detail">
+            <div class="post-img"><img style="width:870px; height:444px" src="{{ article.image.url }}" alt="" /></div>
+            <div class="post-information">
+              <div class="cat-box"><a href="#" title="">{{ article.article_subtitle}}</a></div>
+              <h1 class="post-title"><a href="#" title="">{{ article.article_title }}.</a></h1>
+              <ul class="meta">
+                <li>By
+                  {% for author in article.article_author.all %}
+                      {% if not forloop.first %}
+                      ,
+                      {% endif %}
+                      <a href="#" title="">{{ author.full_name }}</a>
+                  {% endfor %}
+                </li>
+                <li>{{ article.created_date|date:"M, d, Y" }}</li>
+              </ul>
+              <div class="round-socials">
+                <a class="facebook" title="" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="twitter" title="" href="#"><i class="fa fa-twitter"></i></a>
+                <a class="pinterest" title="" href="#"><i class="fa fa-pinterest"></i></a>
+              </div>
+            </div>
+            {% for paragraph in paragraphs %}
+            <h5>{{ paragraph.paragraph_title }}</h5>
+            {% with paragraph.paragraph_content|split:'/n/n' as phrases %}
+            {% for phrase in phrases %}
+            <p>{{ phrase }}</p>
+            {% endfor %}
+            {% endwith %}
+            <br/>
+          {% endfor %}
+
+            </div><!-- Shelter Blog Detail -->
+
+          <div class="shelter-tags">
+            {% with article.tags|split:', ' as tags %}
+              {% for tag in tags %}
+              <a href="{% url 'blog_by_keyword' keyword=tag %}">{{ tag }}</a>
+              {% endfor %}
+            {% endwith %}
+          </div><!-- Shelter Tags -->
+
+          {% for author in article.article_author.all %}
+          <div class="shelter-author">
+            <img style="width:137px; height:143px" src="{{ author.photo.url }}" alt="" />
+            <div class="author-inner">
+              <h5>{{ author.full_name }}</h5>
+              <i>{{ author.job_title }}</i>
+              <div class="shelter-tags">
+                <a>{{ author.company_name }}</a>
+                <a title="" href="{{ author.company_url }}"><i class="fa fa-globe"></i> {{ author.company_url }}</a>
+              </div><!-- Shelter Tags -->
+
+              <!-- <p>Lorem Ipsn gravida nibh vel velit auctor aliquet sit. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibsed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsanpsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.</p> -->
+            </div>
+          </div><!-- Shelter Author -->
+          {% endfor %}
+
+        </div>
+
+        <aside class="col-lg-3  col-md-12 sidebar">
+          <div class="widget">
+            <div class="widget-title"><h4>Search Here</h4></div>
+            <form action="{% url 'search' %}" class="search-form">
+              {% csrf_token %}
+              <input type="text"  name="keyword" placeholder="Enter Your Keywords" />
+              <button type="submit" ><i class="fa fa-search"></i></button>
+            </form>
+          </div><!-- Widget -->
+
+          <div class="widget">
+            <div class="widget-title"><h4>Latest Articles</h4></div>
+            {% for latest in articles %}
+            <div class="urgent-need" style="margin-bottom:30px;">
+              <img style="width:245px; height:174px" src="{{ latest.image.url }}" alt="" />
+              <div class="urgent-text">
+                <i>
+                  By
+                  {% for author in latest.article_author.all %}
+                  {% if forloop.first %}
+                    {{ author.first_name }}
+                  {% endif %}
+                  {% endfor %}
+                </i>
+                <h3><a href="#" title="">{{ latest.article_title }}</a></h3>
+                {% for key, value in dispaly_paragraph.items %}
+                  {% if key == article.id %}
+                    <p>{{ value }}</p>
+                  {% endif %}
+                {% endfor %}
+                <a class="btn small" href="#" title="">Read More</a>
+              </div>
+            </div>
+            {% endfor %}
+          </div><!-- Widget -->
+
+          <!-- <div class="widget">
+            <div class="widget-title"><h4>Categories</h4></div>
+            <ul>
+              <li><a href="#" title="">Business (12)</a></li>
+              <li><a href="#" title="">Coorporate (04)</a></li>
+              <li><a href="#" title="">Photography (01)</a></li>
+              <li><a href="#" title="">Portfolio (03)</a></li>
+              <li><a href="#" title="">Travel (16)</a></li>
+              <li><a href="#" title="">Design (08)</a></li>
+              <li><a href="#" title="">Illustration (02)</a></li>
+              <li><a href="#" title="">Branding (01)</a></li>
+            </ul>
+          </div>
+
+          <div class="widget">
+            <div class="widget-title"><h4>Shelter Gallery</h4></div>
+            <div class="shelter-gallery">
+              <div class="row">
+                <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+                <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+                <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+                <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+                <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+                <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+              </div>
+            </div>
+          </div> -->
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

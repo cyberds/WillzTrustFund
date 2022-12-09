@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load myapp_tags %}
+
+{% block content %}
+
+<div class="pagetop">
+  <div class="container">
+    <h1><i>{{ project.project_name }}</i></h1>
+    <ul class="breadcrumbs">
+      <li><a href="#" title="">Home</a></li>
+      <li><a href="{{ progect.program.program_url }}" title="">Back|Program</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<section>
+  <div class="block">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="shelter-blog-detail event-detail">
+            <div class="post-img"><img style="width:870px; height:100%" src="{{ project.image.url }}" alt="" /></div>
+            <div class="post-information">
+              <div class="cat-box"><a href="#" title="">{{ project.company }}</a></div>
+              <div class="event-info">
+                <div class="row">
+                  <div class="col-md-8 col-xs-12"><h1 class="post-title"><a href="#" title="">{{ project.project_name }}</a></h1></div>
+                  <div class="col-md-4 col-xs-12">
+                    <div class="round-socials">
+                      <a class="facebook" title="" href="#"><i class="fa fa-facebook"></i></a>
+                      <a class="twitter" title="" href="#"><i class="fa fa-twitter"></i></a>
+                      <a class="pinterest" title="" href="#"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p style="font-size: 30px">{{ project.project_description }}</p>
+
+            <ul>
+            {% with project.project_objective|split:'/n/n' as objectives %}
+              {% for obj in objectives %}
+                <li>{{ obj }}</li>
+              {% endfor %}
+            {% endwith %}
+            </ul>
+
+
+
+            <!-- <img class="alignright" src="http://placehold.it/267x286" alt="" />
+
+            <p>Usu an sumo delenit voluptaria. Sit ei electram liberavisse. An mazim facilis intellegebat eum, his at reque malis lobortis. Ferri iriure quaestio no nam, cum ea hinc comprehensam, vix stet nemore suscipit ne. Oratio perfecto necessitatibus in pro. Pro te noluisse vulputate, in quo meis discere albucius. Vidisse vocibus suscipit pri ad, has no meis ludus quaeque, tractatos assentior an eam. Sed at officiis praesent, dolor volutpat disputando eos ea. An dicta suscipiantur mel, quod corpora per et. Ei adversarium liberavisse eos, per quidam legendos id. Usu ei aliquam adversarium instructior. Sea saepe labore quaeque cu, ex sit mutat epicuri facilisi. Veri saperet sapientem ut mei.</p>
+          </div><!-- Shelter Blog Detail-->
+
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="block remove-gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-8 col-xs-12"><h1 class="post-title"><a href="#" title="">{{ project.project_name }} ACTIVITIES</a></h1></div>
+            <div class="col-md-4 col-xs-12">
+            </div>
+          </div>
+          <div class="shelter-blog">
+            <div class="row">
+              {% for activity in activities %}
+              <div class="col-6">
+                <div class="simple-post">
+                  <div class="simple-post-img"><img style="width:370px; height:270px" src="{{ activity.image.url }}" alt="" /></div>
+                  <div class="simple-post-detail">
+                    <ul class="meta">
+                      <li>{{ activity.activity_date|date:"M d, Y" }}</li>
+                    </ul>
+                    <h3><a href="{{ activity.activity_url }}" title="">{{ activity.activity_name }}</a></h3>
+                    {% for key, value in display_desc.items %}
+                      {% if key == activity.id %}
+                        <p style="font-size: 15px">{{ value }}</p>
+                      {% endif %}
+                    {% endfor %}
+
+                    <a class="readmore" href="{{ activity.activity_url }}" title="">Read More</a>
+                  </div>
+                </div><!-- Simple Post -->
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+  </div>
+</div>
+</section>
+
+{% endblock %}

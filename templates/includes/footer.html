@@ -1,0 +1,76 @@
+{% load static %}
+
+<footer>
+  <div class="block">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="widget">
+            <div class="about-widget">
+              <div class="logo"><a href="#" title=""><img src="{% static 'images/logo4.jpeg' %}" alt="" /></a></div>
+              <p>{{ company_overview_links.business_overview }}</p>
+              <form class="newsletter-form">
+                <input type="text" placeholder="Enter Your E-mail" />
+                <button><i class="fa fa-paper-plane-o"></i></button>
+              </form>
+            </div><!-- About Widget -->
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="widget">
+            <h3 class="widget-title">Useful Links</h3>
+            <ul>
+              <li><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'company' %}" title="">Who We Are</a></li>
+              <li><a href="#" title="">Provicy Policy</a></li>
+              <li><a href="#" title="">Terms & Conditions</a></li>
+              <li><a href="{% url 'blog' %}" title="">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="widget">
+            <h3 class="widget-title">Connects</h3>
+            <ul>
+              <li>{{ company_links.address }}</li>
+              <li>{{ company_links.email }}</li>
+              <li>+234 {{ company_links.phone }}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="widget">
+            <h3 class="widget-title">PHOTO GALLERY</h3>
+            <div class="shelter-gallery">
+              <div class="row">
+                {% for image in image_links %}
+                <div class="col-4"><a href="{{ image.activity.activity_url }}" title=""><img style="width:90px; height:90px"  src="{{ image.image.url }}" alt=""></a></div>
+                {% endfor %}
+                <!-- <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+                <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+                <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+                <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+                <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
+
+<div class="bottombar">
+<div class="container">
+  <p>© 2017 Whillz Trust Foundation is Powered by <a href="https://www.naijpoll.com" title="">NaijPoll</a> </p>
+  <div class="socials">
+    <a href="https://www.facebook.com/Whillztrustfoundation" title="">Facebook</a>
+    <a href="#" title="">Twitter</a>
+    <a href="https://www.youtube.com/channel/UCejLPGC07iqDtg3LaatUqww/featured" title="">Youtube</a>
+    <a href="#" title="">Linkedin</a>
+  </div>
+</div>
+</div>

@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <section>
+    <div class="header-inner two">
+      <div class="inner text-center">
+        <h4 class="title text-white uppercase">We Are Hasta</h4>
+        <h5 class="text-white uppercase">Get Many More Features</h5>
+      </div>
+      <div class="overlay bg-opacity-5"></div>
+      <img src="http://placehold.it/1920x800" alt="" class="img-responsive"/> </div>
+  </section>
+  <!-- end header inner -->
+  <div class="clearfix"></div>
+
+  <section>
+    {% include 'includes/alerts.html' %}
+
+    <div class="pagenation-holder">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Package Details</h3>
+          </div>
+          <div class="col-md-6 text-right">
+            <div class="pagenation_links"><a href="index.html">Home</a><i> / </i> <a href="index.html">Pages</a> <i> / </i> Package Plans</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--end section-->
+  <div class="clearfix"></div>
+
+
+   <section class="sec-padding">
+    <div class="container">
+      <div class="row">
+
+        <div class="domain-pricing-table-holder">
+          <table class="table-style-2">
+            <thead>
+              <tr>
+                <th>TLD</th>
+                <th>Registration</th>
+                <th>Domain Transfer</th>
+                <th>DNS Management</th>
+                <th>Whois Privacy</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>.com</td>
+                <td>$4.99</td>
+                <td>$6.99</td>
+                <td>Free</td>
+                <td>$5.99</td>
+                <td><a class="btn btn-green-4 btn-round pull-right" href="#">Register</a></td>
+              </tr>
+              <tr>
+                <td>.org</td>
+                <td>$4.99</td>
+                <td>$6.99</td>
+                <td>Free</td>
+                <td>$5.99</td>
+                <td><a class="btn btn-green-4 btn-round pull-right" href="#">Register</a></td>
+              </tr>
+              <tr>
+                <td>.net</td>
+                <td>$4.99</td>
+                <td>$6.99</td>
+                <td>Free</td>
+                <td>$5.99</td>
+                <td><a class="btn btn-green-4 btn-round pull-right" href="#">Register</a></td>
+              </tr>
+              <tr>
+                <td>.biz</td>
+                <td>$4.99</td>
+                <td>$6.99</td>
+                <td>Free</td>
+                <td>$5.99</td>
+                <td><a class="btn btn-green-4 btn-round pull-right" href="#">Register</a></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="clearfix"></div>
+  <!-- end section -->
+
+{% endblock %}

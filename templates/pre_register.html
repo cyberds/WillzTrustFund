@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% url 'pre_register' as p %}
+
+<section>
+  <div class="block">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title left"class="title left"><h3>Please input your details; for us to better help you.</h3> </div>
+          <div class="row" onload="checkMessege()">
+          {% include 'includes/alerts.html' %}
+          <form class="form contact" method="POST" action="{% url 'pre_register' %}">
+            {% csrf_token %}
+            {{ form.media.js }}
+            <div class="field col-md-6">
+              <label for="first_name">First Name</label>
+              {{ form.first_name }}
+            </div>
+            <div class="field col-md-6">
+              <label for="last_name">Last Name</label>
+              {{ form.last_name }}
+            </div>
+            <div class="field col-md-6">
+              <label for="date_of_birth">Date of Birth</label>
+              {{ form.date_of_birth }}
+            </div>
+
+            <div class="field col-md-6">
+              <label for="phone">Phone Number</label>
+              {{ form.phone }}
+            </div>
+            <div class="field col-md-6">
+              <label for="gender">Select Gender</label>
+              {{ form.gender }}
+            </div>
+            <div class="field col-md-6">
+              <label for="channel">How did you hear about us</label>
+              {{ form.channel }}
+            </div>
+            <div class="field col-md-6">
+              <label for="state">Enter State</label>
+              {{ form.state }}
+            </div>
+            <div class="field col-md-6">
+              <label for="local_gov_area">Enter LGA</label>
+              {{ form.local_gov_area }}
+            </div>
+
+            <button type="submit" class="btn btn-primary submit">Submit</button>
+
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

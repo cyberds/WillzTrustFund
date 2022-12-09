@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% url 'voter' as V %}
+{% url 'update_voter' updated_voter.id as UV %}
+
+{% include 'includes/dashboard_navbar.html' %}
+
+<section>
+  <div class="block">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title left"class="title left"><h3>Please input new voters or pick voter to update.</h3> </div>
+          <div class="row">
+          {% include 'includes/alerts.html' %}
+          {% if request.path == V %}
+          <form class="form contact" method="POST" action="{% url 'voter' %}">
+          {% else %}
+          <form class="form contact" method="POST" action="{% url 'update_voter' updated_voter.id %}">
+          {% endif %}
+            {% csrf_token %}
+            {{ form.media.js }}
+            <div class="field col-md-6">
+              <label for="first_name">First Name</label>
+              {{ form.first_name }}
+            </div>
+            <div class="field col-md-6">
+              <label for="last_name">Last Name</label>
+              {{ form.last_name }}
+            </div>
+            <div class="field col-md-6">
+              <label for="email">Email Address</label>
+              {{ form.email }}
+            </div>
+            <div class="field col-md-6">
+              <label for="phone">Phone Number</label>
+              {{ form.phone }}
+            </div>
+            <div class="field col-md-6">
+              <label for="address_line_1">Address Line 1</label>
+              {{ form.address_line_1}}
+            </div>
+            <div class="field col-md-6">
+              <label for="address_line_2">Address Line 2</label>
+              {{ form.address_line_2 }}
+            </div>
+
+            <div class="field col-md-4">
+              <label for="state">Select State</label>
+              {{ form.state }}
+            </div>
+            <div class="field col-md-4">
+              <label for="local_gov_area">Select LGA</label>
+              {{ form.local_gov_area }}
+            </div>
+            <div class="field col-md-4">
+              <label for="village">Enter village</label>
+              {{ form.village }}
+            </div>
+
+
+            <div class="field col-md-6">
+              <label for="postal_code">Postal Code</label>
+              {{ form.postal_code }}
+            </div>
+            <div class="field col-md-6">
+              <label for="country">Enter Country</label>
+              {{ form.country }}
+            </div>
+            <div class="field col-md-6">
+              <label for="date_of_birth">Date of Birth</label>
+              {{ form.date_of_birth }}
+            </div>
+            <div class="field col-md-6">
+              <label for="photo">Upload Photo</label>
+              {{ form.photo }}
+            </div>
+            <div class="field col-md-4">
+              <label for="is_registered">
+              {{ form.is_registered }} Registered?
+              </label>
+            </div>
+            <div class="field col-md-4">
+              <label for="is_eligible">
+              {{ form.is_eligible }} Eligible?
+              </label>
+            </div>
+            <div class="field col-md-4">
+              <label for="willing_to_register">
+              {{ form.willing_to_register }} willing to register?
+              </label>
+            </div>
+            <div class="field col-md-6">
+              <label for="political_party">Select Political Party</label>
+              {{ form.political_party }}
+            </div>
+            <div class="field col-md-6">
+              <label for="channel">How did you hear about us</label>
+              {{ form.channel }}
+            </div>
+            <div>
+            <button type="submit" class="btn btn-primary">
+            {% if request.path == V %}
+            Submit
+            {% else %}
+            Update
+            {% endif %}
+            </button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if voters.all %}
+  <section>
+    <div class="block">
+    <div class="container">
+      <div class="row">
+
+      <div class="col-md-12">
+            <div class="table-responsive">
+              <table class="table table-style-3" id="table" data-toggle="table" style="width:100%" data-search="true" data-pagination="true" data-response-handler="responseHandler">
+                <thead>
+                    <tr class="primary">
+                        <th scope="col" data-field="First Name">First Name</th>
+                        <th scope="col" data-field="Last Name">Last Name</th>
+                        <th scope="col" data-field="Phone">Phone</th>
+                        <th scope="col" data-field="LGA">LGA</th>
+                        <th scope="col" data-field="State">State</th>
+                        <th scope="col" data-field="Modified Date">Modified Date</th>
+                        <th scope="col" data-field="Edit">Edit</th>
+                        <th scope="col" data-field="Delete">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for voter in voters %}
+                    <tr>
+                        <td scope="row">{{ voter.first_name }}</td>
+                        <td>{{ voter.last_name }}</td>
+                        <td>{{ voter.phone }}</td>
+                        <td>{{ voter.local_gov_area }}</td>
+                        <td>{{ voter.state }}</td>
+                        <td>{{ voter.modified_date }}</td>
+                        <td  scope="row">
+                          <a title="Edit" href="{{ voter.update_url }}" class="btn btn-warning btn-small btn-round" style=>
+                            <span title="Edit">
+                              <i class="fa fa-pencil fa-sm" aria-hidden="true"></i>
+                            </span>
+                          </a>
+                        </td>
+                        <td  scope="row">
+                          <a title="Delete" href="{{ voter.delete_url }}" class="btn btn-danger btn-small btn-round">
+                            <span>
+                              <i class="fa fa-trash fa-sm" aria-hidden="true"></i>
+                            </span>
+                          </a>
+                        </td>
+                    </tr>
+                  {% endfor %}
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Phone</th>
+                      <th>LGA</th>
+                      <th>State</th>
+                      <th>Modified Date</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
+                    </tr>
+                </tfoot>
+            </table>
+          </div>
+      </div>
+
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+
+{% endblock %}

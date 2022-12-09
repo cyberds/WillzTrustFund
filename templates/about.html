@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="pagetop">
+  <div class="container">
+    <h1><i>ABOUT</i> US</h1>
+    <ul class="breadcrumbs">
+      <li><a href="#" title="">Home</a></li>
+      <li>ABOUT</li>
+    </ul>
+  </div>
+</div>
+
+
+<section>
+  <div class="block">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-4 col-md-12">
+          <h2 class="col-title"><strong>Founded in 2019</strong> by <strong>Ide Aaron Anyanwu</strong>, {{ company.company_name }} aims to <strong>promote voters' education</strong> while mobilizing eligible citizens to commit to the Nigeria's electoral process </h2>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="frame-img"><img src="{% static 'images/founder.jpeg' %}" alt="" /></div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="simple-text">
+            <h3>{{ company.company_name }}</h3>
+            <p>{{ company_overview.business_overview }}</p>
+            <!-- <p>{{ company_overview.vision }}</p> -->
+            <span>Ide Aaron Anyanwu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="block remove-gap">
+    <div class="container">
+      <div class="shelter-author">
+        <!-- <img src="http://placehold.it/137x143" alt="" /> -->
+        <div class="author-inner">
+          <!-- <div class="round-socials">
+            <a title="" href="#"><i class="fa fa-facebook"></i></a>
+            <a title="" href="#"><i class="fa fa-twitter"></i></a>
+            <a title="" href="#"><i class="fa fa-pinterest"></i></a>
+          </div>					 -->
+          <h2>Mission Statement</h2>
+          <!-- <i>Writer / Blogger</i> -->
+          <h4 style="color: #666666">{{ company_overview.mission_statement }}</h4>
+        </div>
+      </div><!-- Shelter Author -->
+
+      <div class="shelter-author">
+        <!-- <img src="http://placehold.it/137x143" alt="" /> -->
+        <div class="author-inner">
+          <!-- <div class="round-socials">
+            <a title="" href="#"><i class="fa fa-facebook"></i></a>
+            <a title="" href="#"><i class="fa fa-twitter"></i></a>
+            <a title="" href="#"><i class="fa fa-pinterest"></i></a>
+          </div>					 -->
+          <h2 >Vision</h2>
+          <!-- <i>Writer / Blogger</i> -->
+          <h4 style="color: #666666">{{ company_overview.vision }}</h4>
+        </div>
+      </div><!-- Shelter Author -->
+</div>
+</div>
+</section>
+
+<section>
+  <div class="block remove-gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="title">
+            <span>get involved</span>
+            <h2><i>OUR</i> Programs</h2>
+          </div>
+
+          <div class="creative-causes">
+            <div class="row">
+              {% for program in programs %}
+              <div class="col-4 col-6">
+                <div class="creative-cause">
+                  <div class="cre-cause-img">
+                    <img src="{{ program.image.url }}" alt="" />
+                    <!-- <span><i>$653</i> Raised of $60,524 Goal</span>
+                    <div class="skillbar">
+                      <div class="progress"> <div class="progress-bar" style="width: 85%;"><span>85%</span></div> </div>
+                    </div> -->
+                    <a class="btn open-popup" href="#" title="">Donate Now</a>
+                  </div>
+                  <div class="cause-loc"><span>{{ program.program_name }}</span></div>
+                  <h3><a href="#" title="">{{ program.program_description }}</a></h3>
+                </div><!-- Creative Cause -->
+              </div>
+              {% endfor %}
+
+            </div>
+          </div><!-- Creative Causes -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="block remove-gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="title">
+            <span>OUR PEOPLE HELPING</span>
+            <h2><i>OUR</i>TEAM</h2>
+          </div>
+
+          <div class="shelter-team">
+            <div class="row">
+              {% for employee in staff %}
+              <div class="col-4">
+                <div class="member">
+                  <img style="width:370px; height:410px" src="{{ employee.photo.url }}" alt="" />
+                  <div class="member-name">
+                    <h4>{{ employee.full_name }}</h4>
+                    <span>
+                      <i>{{ employee.job_title }}</i>
+                      <a href="team-detail.html" title="">Read More</a>
+                    </span>
+                  </div>
+                </div><!-- Member -->
+              </div>
+              {% endfor %}
+            </div>
+          </div><!-- Octa Team -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="block remove-gap">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="title">
+            <span> JOIN US NOW</span>
+            <h2><i>GET</i> INVOLVED</h2>
+          </div>
+          <div class="shelter-donations-boxes">
+            <div class="row">
+              <div class="col">
+                <div class="donation-box">
+                  <img src="{% static 'images/employee.jpg' %}" alt="" />
+                  <div class="box-text">
+                    <h4>BECOME AN EMPLOYEE</h4>
+                    <p>Pellentesque eu malsuada nisi has ellus eget et condmen tumg.</p>
+                    <a class="btn small" href="{% url 'get_involved' 'employment' %}" title="">Apply Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="donation-box">
+                  <img src="{% static 'images/volunteer.jpg' %}" alt="" />
+                  <div class="box-text">
+                    <h4>BECOME A VOLUNTEER</h4>
+                    <p>Pellentesque eu malsuada nisi has ellus eget et condmen tumg.</p>
+                    <a class="btn small" href="{% url 'get_involved' 'volunteer' %}" title="">Volunteer Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="donation-box">
+                  <img src="{% static 'images/partner.jpg' %}" alt="" />
+                  <div class="box-text">
+                    <h4>BECOME A PARTNER</h4>
+                    <p>Pellentesque eu malsuada nisi has ellus eget et condmen tumg.</p>
+                    <a class="btn small" href="{% url 'get_involved' 'partner' %}" title="">Partner Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- Shelter Donation Boxes -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- <section>
+  <div class="block less-space gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="shelter-logos">
+            <li><a href="#" title=""><img src="http://placehold.it/179x127" alt="" /></a></li>
+            <li><a href="#" title=""><img src="http://placehold.it/179x127" alt="" /></a></li>
+            <li><a href="#" title=""><img src="http://placehold.it/179x127" alt="" /></a></li>
+            <li><a href="#" title=""><img src="http://placehold.it/179x127" alt="" /></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+{% endblock %}

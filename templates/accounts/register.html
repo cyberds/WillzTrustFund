@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<section>
+  <div class="block">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="become-volunteer">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <div class="volunteer-thumb">
+                  <img src="{% static 'images/woman_voting.jpg' %}" alt=" ">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="title left">
+                  <span>Shine Bright the world needs you</span>
+                  <h2>Registration <i>Form</i></h2>
+                </div>
+                {% include 'includes/alerts.html' %}
+                <form method="POST" action="{% url 'register' %}">
+                  {% csrf_token %}
+                  {{ form.first_name }}
+                  {{ form.last_name }}
+                  {{ form.email }}
+                  {{ form.phone_number }}
+                  {{ form.password }}
+                  {{ form.confirm_password }}
+                  <button class="btn" type="submit" >Create Account</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  {% endblock %}

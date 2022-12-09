@@ -1,0 +1,157 @@
+{% load static %}
+
+{% url 'home' as home %}
+
+<header>
+  <div class="topbar dark">
+    {% if user.id is None %}
+    <div class="container">
+      <div class="social-btns">
+        <a class="facebook" href="https://www.facebook.com/Whillztrustfoundation" title=""><i class="fa fa-facebook"></i></a>
+        <a class="twitter" href="#" title=""><i class="fa fa-twitter"></i></a>
+        <a class="pinterest" href="https://www.youtube.com/channel/UCejLPGC07iqDtg3LaatUqww/abouthttps://www.youtube.com/channel/UCejLPGC07iqDtg3LaatUqww/about" title=""><i class="fa fa-youtube"></i></a>
+      </div>
+      <a class="top-btn open-popup" href="#" title="">Donate Now</a>
+      <ul>
+        <li><a href="{% url 'contact_us' %}" title="">Get Involved</a></li>
+        <li><a href="{% url 'register' %}" title="">Register</a></li>
+        <li><a href="{% url 'login' %}" title="">Login</a></li>
+      </ul>
+    </div>
+    {% else %}
+    <div class="container">
+      <div class="social-btns">
+        <a class="facebook" href="https://www.facebook.com/Whillztrustfoundation" title=""><i class="fa fa-facebook"></i></a>
+        <a class="twitter" href="#" title=""><i class="fa fa-twitter"></i></a>
+        <a class="pinterest" href="https://www.youtube.com/channel/UCejLPGC07iqDtg3LaatUqww/about" title=""><i class="fa fa-youtube"></i></a>
+      </div>
+      <a class="top-btn open-popup" href="#" title="">Donate Now</a>
+      <ul>
+        <li>Welcome {{user.first_name}}!</li>
+        <li class="lineright"><a href="{% url 'client_dashboard' %}">Dashboard</a></li>
+        <li class="lineright"><a href="{% url 'logout' %}">Logout</a></li>
+      </ul>
+    </div>
+    {% endif %}
+  </div><!-- Topbar -->
+  <div class="menubar">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-3"><div class="logo"><a href="#" title=""><img src="{% static 'images/wtf_logo.jpeg' %}" alt="" /></a></div></div>
+        <div class="col-9">
+          <div class="header-contact">
+            <div class="info">
+              <i class="ion-ios-email-outline"></i>
+              <strong>Email
+              <span><a href="mailto:{{ company.email }}">{{ company_links.email }}</a></span>
+              </strong>
+            </div><!-- Info -->
+            <div class="info">
+              <i class="ion-ios-telephone-outline"></i>
+              <strong>Phone Number
+              <span><a href="{{ company_links.phone }}">+234 {{ company_links.phone }}</a></span>
+              </strong>
+            </div><!-- Info -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- Menu Bar -->
+  <div class="menu-strip">
+    <div class="container">
+      <div class="shelter-search">
+        <a href="#" title=""><i class="fa fa-search"></i></a>
+        <form>
+          <input type="search" placeholder="Enter Your Search keywords" />
+          <button><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="{% url 'home' %}" class="{% if request.path == home %} active {% endif %}">Home</a></li>
+          <li><a href="{% url 'company' %}" title="">Who We Are</a></li>
+          <li><a href="{% url 'blog' %}" title="">Blog</a></li>
+          <li><a href="#" title=""class="dropdown-toggle">Programs</a>
+            <ul>
+              {% for program in program_links %}
+  						<li><a href="{{ program.program_url }}" title="">{{ program.program_name }}</a></li>
+              {% endfor %}
+  					</ul>
+          </li>
+	  <li><a href="#" title=""class="dropdown-toggle">Recent Activities</a>
+            <ul>
+              {% for activity in activity_links %}
+  						<li><a href="{{ activity.activity_url }}" title="">{{ activity.activity_name }}</a></li>
+              {% endfor %}
+  					</ul>
+          </li>
+          <!-- <li><a href="#" title="">Events</a></li> -->
+          <li><a href="{% url 'contact_us' %}" title="">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header><!-- Header -->
+
+<div class="responsive-header">
+  {% if user.id is None %}
+  <div class="topbar">
+    <a class="top-btn open-popup" href="#" title="">Donate Now</a>
+    <ul>
+      <li><a href="{% url 'contact_us' %}" title="">Get Involved</a></li>
+      <li><a href="{% url 'register' %}" title="">Register</a></li>
+      <li><a href="{% url 'login' %}" title="">Login</a></li>
+    </ul>
+  </div><!-- Topbar -->
+  {% else %}
+  <div class="topbar">
+    <a class="top-btn open-popup" href="#" title="">Donate Now</a>
+    <ul>
+      <li>Welcome {{user.first_name}}!</li>
+      <li class="lineright"><a href="{% url 'client_dashboard' %}">Dashboard</a></li>
+      <li class="lineright"><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+  </div><!-- Topbar -->
+  {% endif %}
+  <div class="responsive-menubar">
+    <div class="logo"><a href="#" title=""><img src="images/logo.png" alt="" /></a></div>
+
+    <a class="responsive-menu-btn" href="#" title=""><i class="ion-navicon"></i></a>
+    <div class="shelter-search">
+      <a href="#" title=""><i class="fa fa-search"></i></a>
+      <form>
+        <input type="search" placeholder="Enter Your Search keywords" />
+        <button><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div><!-- Responsive Menubar -->
+
+
+  <div class="sideheader">
+    <a class="menu-btn close" href="javascript:void(0)" title=""><i class="icon-cancel"></i></a>
+    <div class="sidemenu scrollbar">
+      <ul>
+        <li><a href="{% url 'home' %}" title="" >Home</a></li>
+        <li><a href="{% url 'company' %}" title="">Who We Are</a></li>
+        <li><a href="{% url 'blog' %}" title="">Blog</a></li>
+        <li><a href="#" title="">Programs</a>
+          <ul>
+            {% for program in program_links %}
+            <li><a href="{{ program.program_url }}" title="">{{ program.program_name }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+	<li><a href="#" title="">Recent Activities</a>
+          <ul>
+            {% for activity in activity_links %}
+            <li><a href="{{ activity.activity_url }}" title="">{{ activity.activity_name }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+        <!-- <li><a href="#" title="">Events</a></li> -->
+        <li><a href="{% url 'contact_us' %}" title="">Contact</a></li>
+      </ul>
+    </div>
+  </div><!-- Sideheader -->
+</div><!-- Responsive Header -->

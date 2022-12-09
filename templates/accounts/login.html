@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<section>
+  <div class="block">
+
+    {% if request.GET.command == 'verification' %}
+  	<div class="container mx-auto alert alert-info text-center" style="max-width: 1030px; margin-top: 100px; margin-bottom: 100px; font-size: 18px;">
+  		Thanks for registering with us. We have been sent a verification email to your email address {{ request.GET.email }}, please verify it.
+  		<br><br>
+  		Already verified <a class= "btn btn-primary" href="{% url 'login' %}">Login</a>
+  	</div> <!-- card .// -->
+  {% else %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="become-volunteer">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <div class="volunteer-thumb">
+                  <img src="{% static 'images/woman_voting.jpg' %}" alt=" ">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="title left">
+                  <span>Shine Bright the world needs you</span>
+                  <h2>Login <i>Form</i></h2>
+                </div>
+                {% include 'includes/alerts.html' %}
+                <form method="POST" action="{% url 'login' %}">
+                  {% csrf_token %}
+                  <input type="email" name="email" placeholder="Enter Email">
+                  <input type="password" name="password" placeholder="Enter password" id="myInput">
+                  <input type="checkbox" onclick="myFunction()"> Show Password
+                  <br>
+                  <button  style="margin: 10px" class="btn submit" type="submit" id="submit3">Sign In</button>
+
+                  <div style="margin: 10px">
+                    <a href="{% url 'forgotPassword' %}" style="float: left;">Forgot password?</a>
+                    <a href="{% url 'register' %}" style="float: right;">Sign up?</a>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+   {% endif %}
+  {% endblock %}

@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Whillz Trust Foundation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/icons.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/color.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'js/cubeportfolio/cubeportfolio.min.css' %}">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+	<link rel="stylesheet" href="{% static 'js/masterslider/style/masterslider.css' %}" />
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-2D2FY901N9"></script>
+	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+
+  		gtag('config', 'G-2D2FY901N9');
+	</script>	
+	
+</head>
+<body>
+	<!-- navbar -->
+	{% include 'includes/navbar.html' %}
+
+	{% block content %}
+	<!-- content -->
+	{% endblock %}
+
+	<!-- footer -->
+	{% include 'includes/footer.html' %}
+
+	<div class="popup">
+		<div class="popup-box">
+			<div class="popup-title"> <h3>Donation Account Details</h3> <a class="close-popup" href="#" title=""><i class="ion-close-round"></i></a> </div><!-- Popup Title -->
+			<div class="popup-content">
+				<!-- <p>You can Help us educate voters and potential voters while increasing voter population.</p> -->
+				<div style="margin:0 160px 0 175px"><a href="#" title=""><img src="{% static 'images/logo.png' %}" alt="" /></a></div>
+				<div class="your-donation" style="padding-top: 15px;">
+					<strong>YOUR DONATION</strong>
+					<p>SUPPORT A NOBLE CAUSE</p>
+					<h6>DONATE TO</h6>
+					<h3>WHILLZ TRUST FOUNDATION</h3>
+					<h1>1219339543</h1>
+					<h3>ZENITH Bank</h3>
+				</div>
+			</div><!-- Popup Content -->
+
+		</div>
+	</div><!-- Popup -->
+
+
+
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/slick.min.js' %}"></script>
+	<script src="{% static 'js/isotope.js' %}"></script>
+	<script src="{% static 'js/simpleLightbox.min.js' %}"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYc537bQom7ajFpWE5sQaVyz1SQa9_tuY"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/masterslider/masterslider.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/cubeportfolio/jquery.cubeportfolio.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/cubeportfolio/main-three-col.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/cubeportfolio/main.js' %}"></script>
+
+	<!-- XDSoft DateTimePicker -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+
+	<script>
+	  $(function () {
+	    $(".datetimepicker").datetimepicker({
+	      format: 'Y-m-d H:i:s',
+	    });
+	  });
+	</script>
+
+	<!-- <script>
+      $(function () {
+				if (document.getElementById("myVar").value === 'Thank you! your details has been submitted.'){
+					alert(myVar);
+					setTimeout(function(){
+					  window.open("https://cvr.inecnigeria.org/Home/start", "_blank");
+					}, 8000)
+				}
+      });
+  </script> -->
+
+	<script>
+	function myFunction() {
+	  var x = document.getElementById("myInput");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	</script>
+
+	<script type="text/javascript">
+	setTimeout(function(){
+	  $('#message').fadeOut('slow')
+	}, 4000)
+	</script>
+
+	<script>
+		$(window).load(function(){
+			/*================== Map =====================*/
+			var myLatlng = new google.maps.LatLng(4.833209, 7.012542);
+			var mapOptions ={
+			zoom:14,
+			disableDefaultUI:true,
+			scrollwheel:false,
+			center:myLatlng
+			}
+			var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+			var image = '';
+			var myLatLng = new google.maps.LatLng(4.833209, 7.012542);
+			var beachMarker = new google.maps.Marker({
+			  position:myLatLng,
+			  map:map,
+			  icon:image
+			});
+		});
+	</script>
+
+	<script>
+  var $table = $('#table')
+
+  $(function() {
+    $table.bootstrapTable()
+      var classes = ['table', 'table-striped', 'table-bordered']
+
+      $table.bootstrapTable('refreshOptions', {
+        classes: classes.join(' ')
+      })
+    })
+</script>
+
+<script type="text/javascript">
+(function($) {
+ "use strict";
+	var slider = new MasterSlider();
+	// adds Arrows navigation control to the slider.
+	slider.control('arrows');
+	slider.control('bullets');
+
+	slider.setup('masterslider' , {
+		 width:1600,    // slider standard width
+		 height:815,   // slider standard height
+		 space:0,
+		 speed:30,
+		 layout:'fullwidth',
+		 loop:true,
+		 preload:0,
+		 autoplay:true,
+		 view:"parallaxMask"
+	});
+})(jQuery);
+</script>
+
+</body>
+</html>

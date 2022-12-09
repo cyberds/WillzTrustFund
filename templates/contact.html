@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="pagetop">
+  <div class="container">
+    <h1><i>CONTACT</i> PAGE</h1>
+    <ul class="breadcrumbs">
+      <li><a href="#" title="">Home</a></li>
+      <li>CONTACT</li>
+    </ul>
+  </div>
+</div>
+
+
+<section>
+  <div class="block">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-12">
+          <div class="modern-title"><h3>We are here to help and anwser any questions or requests you may have</h3> </div>
+          <br/>
+            {% include 'includes/alerts.html' %}
+            <br/>
+            <form class="form contact" method="POST" action="{% url 'contact_us' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="field">
+              <label for="full_name">Full Name</label>
+              {{ form.full_name }}
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              {{ form.email }}
+            </div>
+            <div class="field">
+              <label for="company_name">Company Name</label>
+              {{ form.company_name }}
+            </div>
+            <div class="field">
+              <label for="job_title">Job Title</label>
+              {{ form.job_title }}
+            </div>
+            <div class="field">
+              <label for="channel">How did you hear about us</label>
+              {{ form.channel }}
+            </div>
+            <div class="field">
+              <label for="involvement">How do you want to get involved</label>
+              {{ form.involvement }}
+            </div>
+            <div class="field">
+              <label for="program">program</label>
+              {{ form.program }}
+            </div>
+            <div class="field">
+              <label for="message">message</label>
+              {{ form.message }}
+            </div>
+
+            <div class="form-group">
+            <button type="submit" class="btn btn-primary">submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="contact-box">
+            <h4>Dont Hesitate to <i>Contact Us</i></h4>
+            <ul class="info-list">
+              <li><i>ADDRESS</i>		<span>{{ company.address }}</span></li>
+              <li><i>City, State</i>		<span>{{ company.province }}</span></li>
+              <li><i>EMAIL</i>		<span>{{ company.email }}</span></li>
+              <li><i>PHONE</i>		<span>{{ company.phone }}</span></li>
+            </ul>
+            <div class="round-socials">
+              <a class="facebook" href="#" title=""><i class="fa fa-facebook"></i></a>
+              <a class="google-plus" href="#" title=""><i class="fa fa-google-plus"></i></a>
+              <a class="twitter" href="#" title=""><i class="fa fa-twitter"></i></a>
+              <a class="linkedin" href="#" title=""><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div><!-- Contact Box -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="block no-padding">
+    <div class="row">
+      <div class="col">
+        <div class="map"><div id="map-canvas"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

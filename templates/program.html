@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="pagetop">
+  <div class="container">
+    <h1><i>{{ program.program_name }}</i></h1>
+    <ul class="breadcrumbs">
+      <li><a href="#" title="">Home</a></li>
+      <li><a href="#" title="">Programs</a></li>
+      <li>{{ program.program_name }}</li>
+    </ul>
+  </div>
+</div>
+
+
+<section>
+  <div class="block">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 col-md-12">
+          <div class="shelter-blog-detail">
+            <div class="post-img"><img style="width:870px; height:100%" src="{{ program.image.url }}" alt="" /></div>
+            <div class="post-information">
+              <div class="cat-box"><a href="#" title="">{{ program.company }}</a></div>
+              <div class="event-info">
+                <div class="row">
+                  <div class="col-md-8 col-xs-12"><h1 class="post-title"><a href="#" title="">{{ program.program_name }}</a></h1></div>
+                  <div class="col-md-4 col-xs-12">
+                    <div class="round-socials">
+                      <a class="facebook" title="" href="#"><i class="fa fa-facebook"></i></a>
+                      <a class="twitter" title="" href="#"><i class="fa fa-twitter"></i></a>
+                      <a class="pinterest" title="" href="#"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p style="font-size: 30px">{{ program.program_description }}</p>
+
+          </div>
+
+
+
+
+        <div class="shelter-blog">
+          <h1 class="post-title"><a href="#" title="">{{ program.program_name }} PROJECTS </a></h1>
+            {% for project in projects %}
+              <div class="simple-post">
+                <div class="simple-post-img"><img style="width:370px; height:100%" src="{{ project.image.url }}" alt="" /></div>
+                <div class="simple-post-detail">
+                  <ul class="meta">
+                    <li>project <a href="{{ project.project_url }}" title="">{{ project.project_name }}</a></li>
+                    <li>{{ project.created_date|date:"M d, Y" }}</li>
+                  </ul>
+                  <h3><a href="{{ project.project_url }}" title="">{{ project.project_name }}</a></h3>
+                  {% for key, value in project_desc.items %}
+                    {% if key == project.id %}
+                      <p>{{ value }}</p>
+                    {% endif %}
+                  {% endfor %}
+                  <a class="readmore" href="{{ project.project_url }}" title="">Read More</a>
+                </div>
+              </div><!-- Simple Post -->
+
+            {% endfor %}
+
+      </div>
+
+
+    </div>
+
+    <aside class="col-lg-3  col-md-12 sidebar">
+      <div class="widget">
+        <div class="widget-title"><h4>Search Here</h4></div>
+        <form action="{% url 'search' %}" class="search-form">
+          {% csrf_token %}
+          <input type="text"  name="keyword" placeholder="Enter Your Keywords" />
+          <button type="submit" ><i class="fa fa-search"></i></button>
+        </form>
+      </div><!-- Widget -->
+
+      <div class="widget">
+        <div class="widget-title"><h4>Latest Activities</h4></div>
+        {% for activity in activities %}
+        <div class="urgent-need" style="margin-bottom:30px;">
+          <img style="width:245px; height:174px" src="{{ activity.image.url }}" alt="" />
+          <div class="urgent-text">
+            <i>{{ activity.project }}
+            </i>
+            <h3><a href="#" title="">{{ activity.activity_name }}</a></h3>
+            {% for key, value in activity_desc.items %}
+              {% if key == activity.id %}
+                <p>{{ value }}</p>
+              {% endif %}
+            {% endfor %}
+            <a class="btn small" href="{{activity.activity_url}}" title="">Read More</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div><!-- Widget -->
+
+      <!-- <div class="widget">
+        <div class="widget-title"><h4>Categories</h4></div>
+        <ul>
+          <li><a href="#" title="">Business (12)</a></li>
+          <li><a href="#" title="">Coorporate (04)</a></li>
+          <li><a href="#" title="">Photography (01)</a></li>
+          <li><a href="#" title="">Portfolio (03)</a></li>
+          <li><a href="#" title="">Travel (16)</a></li>
+          <li><a href="#" title="">Design (08)</a></li>
+          <li><a href="#" title="">Illustration (02)</a></li>
+          <li><a href="#" title="">Branding (01)</a></li>
+        </ul>
+      </div><!-- Widget -->
+
+      <!-- <div class="widget">
+        <div class="widget-title"><h4>Shelter Gallery</h4></div>
+        <div class="shelter-gallery">
+          <div class="row">
+            <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+            <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+            <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+            <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+            <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+            <div class="col-4"><a href="#" title=""><img src="http://placehold.it/90x90" alt=""></a></div>
+          </div>
+        </div>
+      </div> -->
+    </aside>
+
+  </div>
+</section>
+
+<section>
+  <div class="block remove-gap">
+    <div class="container">
+
+  </div>
+</div>
+</section>
+
+{% endblock %}
